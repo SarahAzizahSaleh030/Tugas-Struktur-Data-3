@@ -23,3 +23,28 @@ class LinkedList:
         while current:
             print("Menu:", current.nama_menu, "| Harga:", current.harga)
             current = current.next
+    def total_harga(self):
+        total = 0
+        current = self.head
+        while current:
+            total += current.harga
+            current = current.next
+        return total
+
+def main():
+    daftar_menu = {
+        "Miexue ice cream": 5000,
+        "Boba shake": 16000,
+        "Mi sundae": 14000,
+        "Mi Ganas": 11000,
+        "Creamy Mango Boba": 22000
+    }
+
+        keranjang = LinkedList()
+
+    while True:
+        print("\nPilihan Menu:")
+        for idx, (nama_menu, harga) in enumerate(daftar_menu.items(), 1):
+            print(f"{idx}. {nama_menu} - Rp{harga}")
+
+        print("0. Selesai pemesanan")
