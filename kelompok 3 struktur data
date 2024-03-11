@@ -48,3 +48,26 @@ def main():
             print(f"{idx}. {nama_menu} - Rp{harga}")
 
         print("0. Selesai pemesanan")
+
+pilihan = int(input("Masukkan nomor menu yang dipilih: "))
+
+        if pilihan == 0:
+            break
+        elif pilihan < 1 or pilihan > len(daftar_menu):
+            print("Pilihan tidak valid. Silakan pilih nomor menu yang tersedia.")
+            continue
+
+        index_menu = list(daftar_menu.keys())[pilihan - 1]
+        harga_menu = daftar_menu[index_menu]
+
+        keranjang.tambah_pesanan(index_menu, harga_menu)
+
+    print("\nPesanan yang sudah ditambahkan:")
+    keranjang.tampilkan_pesanan()
+
+    total = keranjang.total_harga()
+    print("\nTotal Harga yang harus dibayarkan:", total)
+    print("terimakasih sudah memesan")
+
+if __name__ == "__main__":
+    main()
